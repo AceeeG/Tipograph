@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using NLog;
-using NLog.Config;
+
 
 namespace Tipograph
 {
@@ -35,7 +35,7 @@ namespace Tipograph
             // Правило для добавления пробелов вокруг скобок и кавычек
             input = Regex.Replace(input, @"(\s*)([«»„“])(\S+)([«»„“])(\s*)", "$1$2$3$4$5");
 
-            // Правило для замены слова "сыр" на "колбаса"
+            // Абсурдное правило для замены слова "сыр" на "колбаса"
             input = input.Replace("сыр", "колбаса");
 
             // Правило для добавления пробела после двоеточия

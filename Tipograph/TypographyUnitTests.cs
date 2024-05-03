@@ -1,5 +1,5 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 
 namespace Tipograph
@@ -12,7 +12,8 @@ namespace Tipograph
         {
             string input = "Привет,мир!";
             string expected = "Привет, мир!";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -20,7 +21,8 @@ namespace Tipograph
         {
             string input = "Это    текст  с     лишними    пробелами.";
             string expected = "Это текст с лишними пробелами.";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -28,7 +30,8 @@ namespace Tipograph
         {
             string input = "красно-белый";
             string expected = "красно - белый";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -36,7 +39,8 @@ namespace Tipograph
         {
             string input = "Он сказал:«Привет мир!»";
             string expected = "Он сказал: «Привет мир!»";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -44,7 +48,8 @@ namespace Tipograph
         {
             string input = "Русский (или славянский) текст.";
             string expected = "Русский (или славянский) текст.";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -52,7 +57,8 @@ namespace Tipograph
         {
             string input = "Задача:написать код.";
             string expected = "Задача: написать код.";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -60,7 +66,8 @@ namespace Tipograph
         {
             string input = "Он работал в 10-часовую смену.";
             string expected = "Он работал в 10-часовую смену.";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -68,7 +75,8 @@ namespace Tipograph
         {
             string input = "Он сказал: \"Привет мир!\"";
             string expected = "Он сказал: «Привет мир!»";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -76,7 +84,8 @@ namespace Tipograph
         {
             string input = "Я люблю сыр.";
             string expected = "Я люблю колбаса.";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
 
         [Test]
@@ -84,7 +93,8 @@ namespace Tipograph
         {
             string input = "";
             string expected = "";
-            Assert.That(Tipograph.FormatText(input), Is.EqualTo(expected));
+            string formated = Tipograph.FormatText(input);
+            Assert.That(formated, new EqualConstraint(expected));
         }
     }
 }
